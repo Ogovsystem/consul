@@ -1,0 +1,31 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "modernizr", "data-turbolinks-track" => "reload" %>
+<% end %>
+<% content_for :head do %>
+  <%= javascript_include_tag "pace.min", "data-turbolinks-track" => "reload" %>
+<% end %>
+<% if header.present? 
+<section id="home" data-parallax="scroll" data-image-src=<%= image_tag(image_path_for("custom/5ecc29b1678908436cff2005b5ebcf29_9a3afba398c6444430cdb27f4ed7a27c.jpg")) %> data-natural-width=3000 data-natural-height=2000>
+  <div class="jumbo highlight">
+    <div class="row">
+      <div class="small-12 medium-6 column <%= "medium-9 small-centered text-center" unless header.image.present? %>">
+        <span><%= header.label %></span>
+        <h1><%= header.title %></h1>
+        <p class="lead"><%= header.description %></p>
+        <div class="small-12 medium-6 large-4 <%= "small-centered" unless header.image.present? %>">
+          <%= link_to header.link_text, header.link_url, class: "button expanded large" %>
+        </div>
+      </div>
+
+      <% if header.image.present? %>
+        <div class="small-12 medium-6 column">
+          <%= image_tag(header.image_url(:large),
+                        class: "margin",
+                        alt: header.image.title) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+ </section>
+  <div class="background-header"></div>
+<% end %>

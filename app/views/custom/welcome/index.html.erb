@@ -1,0 +1,124 @@
+<% content_for :body_class, "home-page" %>
+
+<% content_for :canonical do %>
+  <%= render "shared/canonical", href: root_url %>
+<% end %>
+
+<%= render Shared::BannerComponent.new("homepage") %>
+
+<% provide :social_media_meta_tags do %>
+  <%= render "shared/social_media_meta_tags",
+              social_url: root_url %>
+<% end %>
+
+<%= render "header", header: @header %>
+
+<main>
+  <%= render "feeds" %>
+
+  <div class="row">
+    <% if @cards.any? %>
+      <div class="small-12 column <%= "large-8" if feed_processes_enabled? %>">
+        <h2 class="title"><%= t("welcome.cards.title") %></h2>
+
+        <%= render "shared/cards", cards: @cards %>
+      </div>
+    <% end %>
+
+    <% if feed_processes_enabled? %>
+      <div class="small-12 large-4 column">
+        <%= render "processes" %>
+      </div>
+    <% end %>
+  </div>
+
+  <% if feature?("user.recommendations") && (@recommended_debates.present? || @recommended_proposals.present?) %>
+    <%= render "recommended",
+                recommended_debates: @recommended_debates,
+                recommended_proposals: @recommended_proposals %>
+  <% end %>
+  
+          <div class="row about-how">
+          
+            <h1 class="intro-header" data-aos="fade-up">Cómo Participar</h1>           
+            <p style="
+            text-align: center;
+        ">El mecanismo de propuestas ciudadanas se resume en tres pasos muy sencillos:</p>
+            <div class="about-how-content" data-aos="fade-up">
+                <div class="about-how-steps block-1-2 block-tab-full group">
+
+                    <div class="bgrid step" data-item="1">
+                        
+                       <strong> <h3>¡Propones!</h3></strong>
+                        <p>Creas una propuesta en este portal de participación, que es la plataforma que el Ayuntamiento de Barbate habilita para dar voz a todos sus ciudadanos. 
+                        </p> 
+                    </div>
+
+                    <div class="bgrid step" data-item="2">
+                        <h3>¡Apoyas!</h3>
+                        <p>Apoyas una propuesta haciendo click en el botón de “apoyar” propuesta si así lo consideras y estás de acuerdo con lo que otros ciudadanos proponen para mejorar el ayuntamiento. 
+                        </p> 
+                    </div>               
+               
+                    <div class="bgrid step" data-item="3" style="
+                    width: 100%;
+                ">
+                        <h3>y… ¡Tu Ayuntamiento lo implementa!</h3>
+                        <p>Las propuestas son clasificadas, atendiendo a la materia de la que se tratan, por las diferentes concejalías integrantes del Ayuntamiento de Barbate. 
+                            Posteriormente, se procede a su análisis y evaluación tras ser recabados los diferentes informes técnicos de los distintos departamentos. 
+                            De este análisis se extraerá un listado definitivo de proyectos que se consideran viables y serán sometidos a votación durante el plazo de tiempo establecido para ello. 
+                        </p> 
+                    </div>
+
+                   
+
+                </div>           
+           </div> <!-- end about-how-content -->
+
+        </div> <!-- end about-how -->
+
+              
+        
+    </section> <!-- end about -->  
+   
+
+    <!-- Más información icon_ayto_white
+    ================================================== -->
+    <section id="download" style="
+    background: #008dd2;
+">
+<div class="image_frame image_item no_link scale-with-grid aligncenter stretch-ultrawide no_border" style="margin-top:20px;margin-bottom:20px;"><div class="image_wrapper">
+    <img class="scale-with-grid" src="https://www.fuengirola.es/wp-content/uploads/2017/06/icon_ayto_white.png" alt="icon_ayto_white" width="252" height="182"></div></div>
+        <div class="row">
+            <div class="col-full">
+                <h1 class="intro-header"  data-aos="fade-up">Más información</h1>
+
+                <p data-aos="fade-up">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                   
+                </p>
+                <div class="buttons" data-aos="fade-up">
+                    <a href="#" class="smoothscroll button stroke">
+                        <span class="icon-user-add" aria-hidden="true"></span>
+                        Participación
+                    </a>
+                    <a href="#" data-lity class="smoothscroll button stroke">
+                        <span class="icon-search" aria-hidden="true"></span>
+                        Transparencia
+                    </a>
+                    <a href="#" data-lity class="smoothscroll button stroke">
+                        <span class="icon-bar-chart" aria-hidden="true"></span>
+                        Datos abiertos
+                    </a>
+                    
+                    
+                </div>  
+                
+
+            </div>
+        </div>
+
+    </section> <!-- end download -->
+  
+</main>

@@ -1,0 +1,34 @@
+<% if header.present? %>
+  <div class="jumbo highlight" style="background: url(/assets/custom/pciudadana.jpg);background-repeat:no-repeat;
+  height: 600px;
+  width: 100% ;
+  text-align: center; ">
+    <div class="row">
+      <div class="small-12 medium-6 column <%= "medium-9 small-centered text-center" unless header.image.present? %>">
+        <span><%= header.label %></span>
+        <h1><%= header.title %></h1>
+        <p class="lead"><%= header.description %></p>
+        <div class="small-12 medium-6 large-4 <%= "small-centered" unless header.image.present? %>">
+              <div class="buttons-header" >
+              <a href="#" class="smoothscroll button-header stroke">
+                  <span class="icon-chat" aria-hidden="true"></span>
+                  Debates
+              </a>
+              <a href="#" class="smoothscroll button-header stroke">
+                  <span class="icon-light-bulb" aria-hidden="true"></span>
+                  Propuestas
+              </a>
+              <a href="#" class="smoothscroll button-header stroke">
+                  <span class="icon-pie-chart" aria-hidden="true"></span>
+                  Presupuestos
+              </a>
+              <a href="#" class="smoothscroll button-header stroke">
+                  <span class="icon-question" aria-hidden="true"></span>
+                  Consultas
+              </a> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
